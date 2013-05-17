@@ -1,0 +1,61 @@
+html {
+    font-family: 'Open Sans', sans-serif !important;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif !important;
+}
+/*400,300,600,700,800*/
+h1 {
+    font-weight: 800 !important;
+}
+h2 {
+    font-weight: 700 !important;
+}
+h3 {
+    font-weight: 600 !important;
+}
+p.med, span.med {
+    font-weight: 600 !important;
+}
+.reveal h2 {
+    text-shadow: 0 1px 0 #CCC, 0 2px 0 #C9C9C9, 0 3px 0 #BBB, 0 4px 0 #B9B9B9, 0 5px 0 #AAA, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+.reveal h3 {
+    text-shadow: 0 1px 0 #CCC, 0 2px 0 #C9C9C9, 0 3px 0 #BBB, 0 4px 0 #B9B9B9, 0 4px 0 #AAA, 0 5px 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.3), 0 3px 4px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.25), 0 15px 15px rgba(0, 0, 0, 0.15);
+}
+.reveal h4 {
+    text-shadow: 0 1px 0 #CCC, 0 1px 0 #C9C9C9, 0 1px 0 #BBB, 0 2px 0 #B9B9B9, 0 3px 0 #AAA, 0 3px 1px rgba(0, 0, 0, 0.1), 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+.hiddenhover {
+    display: none;
+}
+
+.hiddenhover:hover {
+    display: block;
+}
+
+.redText {
+    color: #e55e5e !important;
+}
+
+.purpleText {
+    color: #8f60e0 !important;
+}
+
+.greenText {
+    color: #3dcc76 !important;
+}
+
+.blueText {
+    color: #1b91ff !important;
+}
+.orangeText {
+    color: #e59d59 !important;
+}
+.reveal pre {
+    box-shadow: none;
+}
+.reveal pre code {
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.7);
+    max-height: 500px;
+}

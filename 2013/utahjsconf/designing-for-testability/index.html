@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Designing for Testability</title>
+  <meta name="description"
+        content="Design principles that contribute to a program's testability.">
+  <meta name="author" content="Jason Dobry">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+  <script>
+    document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet'
+        type='text/css'>
+</head>
+
+<body>
+
+<div class="reveal">
+<div class="slides">
+<!-- Title -->
+<section>
+  <h2>Designing for Testability</h2>
+  <br>
+  <br>
+
+  <p><img src="images/csc-twitter_icon.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a
+    href="https://twitter.com/DobryJason">@DobryJason</a></p>
+
+  <p><img src="images/github_icon_32.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a
+    href="https://github.com/jmdobry">@jmdobry</a></p>
+  <p>
+    <a href="http://pseudobry.com">www.<strong>pseudo</strong>bry.com</a>
+  </p>
+</section>
+<!-- What? -->
+<section>
+  <h2 class="blueText">Testability</h2>
+  <br>
+
+  <h3>What?</h3>
+
+  <h4>Why?</h4>
+
+  <h4>How?</h4>
+</section>
+<section>
+  <h3>let's start with what we know</h3>
+</section>
+<section>
+  <h2><span class="redText">un-testable</span> code</h2>
+  <br>
+  <img src="images/mrbean.jpg" height="350px" style="margin-top:5px">
+  <p class="fragment roll-in">maybe console.log() will help...</p>
+</section>
+<section>
+  <h2><span class="redText">un-testable</span> code</h2>
+  <br>
+  <br>
+  <p class="fragment roll-in"><span class="redText">no visibility</span> into the state and
+    activities of the program</p>
+  <ul>
+    <li class="fragment roll-in">what state is the program in?</li>
+    <li class="fragment roll-in">how did it get there?</li>
+    <li class="fragment roll-in">where can it go from here?</li>
+  </ul>
+  <br>
+  <br>
+  <p class="fragment roll-in">not having answers to these questions is <span class="redText">bad news</span>
+  </p>
+  <br>
+  <br>
+  <br>
+</section>
+<section>
+  <h2><span class="redText">un-testable</span> code</h2>
+  <br>
+  <img src="images/fixed-it.jpg" height="350px" style="margin-top:5px">
+  <p class="fragment roll-in">Avoidance isn't a solution</p>
+</section>
+<section>
+  <h2><span class="redText">un-testable</span> code</h2>
+  <br>
+  <img src="images/DOEJobs.jpg" height="350px" style="margin-top:5px">
+  <p class="fragment roll-in">It shouldn't take one of these to understand your code</p>
+  <aside class="notes">Understanding what testability ISN'T, is just as important as
+    understanding what it is. We can get so caught up in testing the code or making
+    it testable that we miss the mark.
+  </aside>
+</section>
+<section>
+  <h2><span class="blueText">Testable</span> code</h2>
+  <br>
+  <p>Quickly find answers to these questions:</p>
+  <br>
+  <ul>
+    <li class="fragment roll-in">what state is the program in?</li>
+    <li class="fragment roll-in">how did it get there?</li>
+    <li class="fragment roll-in">where can it go from here?</li>
+  </ul>
+  <aside class="notes">Ask audience what they think it is. Designing for
+    “testability” in all honesty really means writing well-designed programs. When a
+    program is “testable”, that really means that the program follows programming
+    best-practices. When components are de-coupled, they are more testable. When
+    methods and classes follow the single-responsibility principle, they are more
+    testable. When programmers correctly use polymorphism, data encapsulation,
+    design-by-contract, dependency injection, and all other programming
+    best-practices, their programs are more testable. Testability is really a measure
+    of how easy it is to programmatically verify that a program works correctly.
+    Testability is a measure of how much insight into its current state a program
+    can give you. Testability is a measure of how easy it is to put the program into
+    any of its possible states. Testability is a measure of how easy it is to
+    programmatically move the program from state to state.
+  </aside>
+</section>
+<section>
+  <h2><span class="blueText">Testability</span></h2>
+  <br>
+  <p><span class="blueText">Verify</span> you've created the right program</p>
+  <br>
+  <p><span class="blueText">Validate</span> your implementation</p>
+</section>
+<section>
+  <h2><span class="blueText">Testability</span></h2>
+  <br>
+
+  <h3>It's not magic</h3>
+
+  <h2><span class="blueText">It's just good design</span></h2>
+</section>
+<!-- Why? -->
+<section>
+  <h2 class="blueText">Testability</h2>
+  <br>
+  <h4>What?</h4>
+
+  <h3>Why?</h3>
+
+  <h4>How?</h4>
+</section>
+<section data-state="soothe">
+  <h2>Designing for Testability</h2>
+  <p class="fragment roll-in">Facilitates rapid development</p>
+  <p class="fragment roll-in">Cleaner code</p>
+  <p class="fragment roll-in">Better maintainability</p>
+  <p class="fragment roll-in">Greater confidence in implementation</p>
+  <p class="fragment roll-in">Improves extensibility</p>
+  <p class="fragment roll-in">Greater visibility reduces bugs</p>
+</section>
+<section>
+  <h3>Designing for Testability</h3>
+
+  <h2 class="blueText">Real business value</h2>
+  <aside class="notes">
+    As engineers, sometimes we are distanced from the business side of things. Every
+    once in a while we should look at things from the Product Manager's point of view.
+    Programming mistakes have real impact on business success.
+  </aside>
+</section>
+<section data-state="alert">
+  <h2>Bad design</h2>
+  <p class="fragment roll-in">Failure to keep business promises</p>
+  <p class="fragment roll-in">Dissatisfied customers</p>
+  <p class="fragment roll-in">Loss of respect</p>
+  <p class="fragment roll-in">Legal action</p>
+  <p class="fragment roll-in">Loss of time (Support Reps, Managers, Devs)</p>
+  <p class="fragment roll-in">Loss of $$$ (User loss, legal action, dev time)</p>
+</section>
+<section>
+  <h3>Bad Design</h3>
+
+  <h2 class="redText">Hurts Business</h2>
+  <aside class="notes">
+    It's hard to quantify our mistakes. Fixing takes time. Maintaining takes time. Extending
+    takes time. Refactoring takes time. Time is money. Time is time!
+  </aside>
+</section>
+<!-- How? -->
+<section>
+  <h2 class="blueText">Testability</h2>
+  <br>
+  <h4>What?</h4>
+
+  <h4>Why?</h4>
+
+  <h3>How?</h3>
+</section>
+<!-- Abstraction -->
+<section>
+  <h2>Abstraction</h2>
+  <br>
+  <p class="fragment roll-in">
+    <q>
+      "All problems in computer science can be solved by another level of indirection"
+    </q>
+  </p>
+  <p class="med fragment roll-in">David Wheeler</p>
+  <br>
+  <p class="fragment roll-in">
+    <q>
+      "...except for the problem of too many layers of indirection."
+    </q>
+  </p>
+  <p class="med fragment roll-in">Kevlin Henney</p>
+</section>
+<section>
+  <h3>remember</h3>
+
+  <h2>code is for <span class="blueText">people</span></h2>
+
+  <h3>not <span class="redText">machines</span></h3>
+</section>
+<section>
+  <p>people don't read binary</p>
+  <img src="images/qr.jpg" height="350px" style="margin-top:5px">
+  <p>or pretty squares</p>
+</section>
+<section>
+  <p>except maybe him</p>
+  <img src="images/data-positronic-brain.jpg" height="405px" style="margin-top:5px">
+</section>
+<section>
+  <p>we can make our code pretty</p>
+  <img src="images/why.png" height="350px" style="margin-top:5px">
+  <p>but it's not how we comprehend things</p>
+</section>
+<section>
+  <p>we comprehend images fast</p>
+  <img src="images/cat.jpg" height="350px" style="margin-top:5px">
+  <p>real life entities encapsulate ideas</p>
+</section>
+<section>
+  <p>we express ideas—abstractions</p>
+  <img src="images/cow.jpg" height="350px" style="margin-top:5px">
+  <p>using the semantics of a programming language</p>
+</section>
+<section>
+  <p>each idea has a representation in the code</p>
+  <img src="images/machine.jpg" height="350px" style="margin-top:5px">
+  <p>ideas drive design</p>
+</section>
+<section>
+  <h2>Abstraction</h2>
+  <br>
+  <p class="fragment roll-in">Represent <span class="blueText">semantics</span> in data and
+    programs while hiding
+    implementation details</p>
+  <br>
+  <p class="fragment roll-in">Allow programmers to <span class="blueText">focus</span> on a few
+    things at a time</p>
+  <br>
+  <p class="fragment roll-in">Express concepts or <span class="blueText">ideas</span> not
+    associated with any specific
+    instance</p>
+</section>
+<section>
+  <h3>languages</h3>
+  <p>provide low-level abstractions</p>
+  <pre>
+  <code class="javascript">
+  function add(a, b) {
+      return a + b;
+  }
+  var netWorth = 100000;
+  var flowers = ["rose", "tulip", "daisy"];
+  var student = "John";
+  </code>
+  </pre>
+</section>
+<section>
+  <h3>programmers</h3>
+  <p>define high-level abstractions</p>
+  <pre>
+  <code class="javascript">
+  function Role(startDate) {
+      this.startDate = startDate;
+  }
+
+  function Manager() {}
+  Manager.prototype.manage = new function() {
+      console.log("Get back to work!");
+  };
+  Manager.prototype = new Role();
+
+  function Developer() {
+      this.linesOfCode = 0;
+  }
+  Developer.prototype.work = new function() {
+      this.linesOfCode++;
+  };
+  Developer.prototype = new Role();
+  </code>
+  </pre>
+</section>
+<section>
+  <h2>classes and objects</h2>
+  <br>
+  <p class="fragment roll-in">
+    Classes encapsulate the <span class="blueText">state</span> (or data) and <span
+    class="blueText">operations</span> (or algorithms) associated with high-level
+    abstractions</p>
+  <br>
+  <p class="fragment roll-in">Class <span class="blueText">instances</span> give life to your
+    abstractions</p>
+  <br>
+  <p class="fragment roll-in">Such organization promotes programmer
+    <span class="blueText">comprehension</span> of the code</p>
+</section>
+<section>
+  <h3>high-level abstractions</h3>
+  <pre>
+  <code class="javascript">
+  function Printer() {}
+  Printer.prototype.print = function (document) {
+      console.log(document.getText());
+  };
+
+  function Document(text) {
+      this.text = text;
+  }
+  Document.prototype.getText = function() {
+      return this.text;
+  };
+
+  var reportCard = new Document("GPA 4.0 - Great Job!");
+  var printer = new Printer();
+
+  printer.print(reportCard);  // "GPA 4.0 - Great Job!"
+  </code>
+  </pre>
+  <p>"Printers" interacting with "Documents"</p>
+  <aside class="notes">The design for a word processing program might include abstractions for
+    Document, Font, Printer, Table, Figure. Working with concepts and ideas allows developers to
+    think much faster. A Document has text. A Table has rows. A Printer can print Documents.
+    Getting tripped up in syntax reduces testablity. Remember, testability is also a measure of
+    how easy it to understand what a program does. Code that represents the semantics of abstract
+    ideas is easy to follow.
+  </aside>
+</section>
+<section data-state="soothe">
+  <h2>Increases Testability</h2>
+</section>
+<section>
+  <h2 class="orangeText">be wise</h2>
+  <br>
+
+  <div class="fragment roll-in">
+    <p>
+      Bad abstractions can <span class="redText">kill</span> (brain cells, productivity, etc.)</p>
+    <br>
+    <p>e.g. AbstractSingletonProxyFactoryBean</p>
+  </div>
+  <br>
+  <p class="fragment roll-in">There is such a thing as too much abstraction</p>
+</section>
+<section>
+  <h3>How much is</h3>
+
+  <h2><span class="redText">too much?</span></h2>
+  <br>
+  <p class="fragment roll-in">Complexity increases with levels of indirection</p>
+  <br>
+  <p class="fragment roll-in">Trust your feelings</p>
+  <br>
+  <p class="fragment roll-in">If your coworkers can't easily grasp your abstractions, then
+    rethink your design.</p>
+  <br>
+  <p class="fragment roll-in">Try running your abstractions past a 5th-grader</p>
+</section>
+<!-- Decomposition -->
+<section>
+  <h2>Decomposition</h2>
+  <br>
+  <p class="fragment roll-in">
+    <q>
+      "The secret to building large apps is never build large apps. Break your applications into
+      small pieces. Then, assemble those testable, bite-sized pieces into your big application"
+    </q>
+  </p>
+  <br>
+  <p class="med fragment roll-in">Justin Meyer, creator of JavaScriptMVC</p>
+</section>
+<section>
+  <img src="images/decomposition.gif">
+</section>
+<section>
+  <h2>Decomposition</h2>
+  <br>
+  <p>
+    Fundamental technique for <span class="blueText">taming complexity</span> and creating <span
+    class="blueText">viable abstractions</span>
+  </p>
+  <br>
+  <p class="fragment roll-in"><span class="redText">Structure</span>: Package, Module, Class,
+    Function, etc. </p>
+  <br>
+  <p class="fragment roll-in"><span class="redText">Algorithms</span>: Divide-and-Conquer,
+    Map/Reduce, Recursion, etc.</p>
+</section>
+<section>
+  <h2>Decomposition</h2>
+  <br>
+  <p>Solutions to big problems are concise because they are expressed in
+    terms of solutions to smaller problems</p>
+  <br>
+  <p>Decomposition helps us invent the abstractions we need</p>
+</section>
+<section>
+  <h2>Example: <span class="blueText">Merge Sort</span></h2>
+  <img src="images/merge.gif">
+  <p>Solve smaller, easier problems which combine into the full solution</p>
+  <aside class="notes">
+    Problems can be broken down into smaller pieces which are easier to solve individually. The
+    solution to the overall problem is formed by combining the solutions to the smaller problems.
+    Each of the smaller problems is easier to understand and manage.
+  </aside>
+</section>
+<section>
+  <h3><span class="redText">Hypo</span>-decomposition</h3>
+  <pre>
+  <code class="javascript">
+  function doAllTheThings() {
+    $.get('/api/data', function(data, ...) {
+      if (data == "ERROR") {
+        $('#errorMsg').show();
+        $.post('/api/logging', 'we had an error', function(...) {
+          $('#errorMsg').append('<p>Error logged. Try later.</p>');
+        });
+      } else {
+        for (var i = 0; i < data.someArray.length; i++) {
+          someGlobal.total += data.someArray[i].value;
+        }
+        // it goes on, and it's ugly...
+      }
+    });
+  }
+  </code>
+  </pre>
+</section>
+<section>
+  <h3><span class="greenText">Balanced</span> decomposition</h3>
+  <pre>
+  <code class="javascript">
+  FormController.resetForm();
+
+  DataService.getSomeData({
+      success: function (data) {
+          data = DataService.process(data);
+          FormController.populateForm(data);
+
+          EventBus.trigger('formReady', data);
+      },
+      error: function (err) {
+          LoggerService.error(err);
+          FormController.displayError(err);
+      }
+  });
+  </code>
+  </pre>
+</section>
+<section data-state="soothe">
+  <h2>Increases Testability</h2>
+</section>
+<section>
+  <h3><span class="redText">Hyper</span>-decomposition</h3>
+  <pre>
+  <code class="javascript">
+  var creditCardNumberDigit = new CreditCardNumberDigit("7");
+  creditCardNumber.push(creditCardNumberDigit);
+  creditCard.setCreditCardNumber(creditCardNumber);
+
+  var creditCardOwnerName = new FullName("Jason", "Dobry");
+  creditCard.setCreditCardOwnerName(creditCardOwnerName);
+
+  cardReader.swipe(creditCard);
+  if (cashRegister.approveCard(cardReader.getLastSwipedCardInfo())) {
+    cashRegister.processTransaction();
+    cashRegister.printer.printReceipt(cashRegister.getLastTransaction());
+  }
+  // it goes on, and it's ugly
+  </code>
+  </pre>
+</section>
+<section>
+  <h2 class="orangeText">Be wise</h2>
+  <br>
+  <p class="fragment roll-in">
+    Use <span class="blueText">metrics</span> and <span class="blueText">common sense</span>
+  </p>
+  <br>
+  <p class="fragment roll-in">
+    Abstraction and decomposition can't help with poor choice of algorithm or data structure
+  </p>
+</section>
+<!-- Design by contract -->
+<section>
+  <h2>Design by Contract</h2>
+  <br>
+  <p class="fragment roll-in">
+    <q>
+      "Correctness is clearly the prime quality. If a system does not do what it is supposed to do,
+      then everything else about it matters little."
+    </q>
+  </p>
+  <br>
+  <p class="fragment roll-in"><span class="med">Bertrand Meyer</span>, creator of the <span
+    class="med">Eiffel programming language</span>
+  </p>
+</section>
+<section>
+  <h4>Builds</h4>
+  <br>
+
+  <h2><span class="blueText">trust</span></h2>
+  <br>
+  <h4>between application components</h4>
+</section>
+<section>
+  <h4>Builds</h4>
+  <br>
+
+  <h2><span class="blueText">confidence</span></h2>
+  <br>
+  <h4>in your implementation</h4>
+</section>
+<section>
+  <h4>Builds</h4>
+  <br>
+
+  <h2><span class="blueText">reliability</span></h2>
+  <br>
+  <h4>in your software</h4>
+</section>
+<section>
+  <h3>What's a contract?</h3>
+</section>
+<section>
+  <p>
+    <q>
+      "You scratch my back, I'll scratch yours."
+    </q>
+  </p>
+</section>
+<section>
+  <p>
+    <q>
+      "I'll have a Big Mac with Coke and fries."
+    </q>
+  </p>
+  <br>
+  <p>
+    <q>
+      "That will be $6.89 at the window. Please pull forward."
+    </q>
+  </p>
+</section>
+<section>
+  <img src="images/contract.png">
+</section>
+<section>
+  <h3>P.P.I.</h3>
+  <br>
+  <p class="fragment roll-in"><span class="med blueText">P</span>re-conditions</p>
+  <br>
+  <p class="fragment roll-in"><span class="med greenText">P</span>ost-conditions</p>
+  <br>
+  <p class="fragment roll-in">Class <span class="med purpleText">I</span>nvariants</p>
+</section>
+<section>
+  <h3><span class=blueText>Pre</span>-conditions</h3>
+  <br>
+  <ul>
+    <li class="fragment roll-in">Specific to operation</li>
+    <li class="fragment roll-in">Obligations the caller (client) must meet</li>
+    <li class="fragment roll-in">Specify minimum acceptable input conditions</li>
+    <li class="fragment roll-in">
+      Protect the callee (supplier) by specifying how <em>little</em> is acceptable
+    </li>
+    <li class="fragment roll-in">
+      The contractor must not be liable for failing to carry out tasks outside the specified scope
+    </li>
+  </ul>
+</section>
+<section>
+  <h3><span class=blueText>Pre</span>-conditions</h3>
+  <pre>
+  <code class="javascript">
+  /**
+   * Returns the value at the front of the queue without removing it
+   *
+   * @pre !isEmpty()
+   *
+   * @post return value is the value at the front of the queue
+   * @post the queue is unchanged
+   */
+  Queue.prototype.peek = function () {
+    return this.queue[this.queue.size - 1];
+  };
+  </code>
+  </pre>
+</section>
+<section>
+  <h3><span class=blueText>Pre</span>-conditions</h3>
+  <p>With checking</p>
+  <pre>
+  <code class="javascript">
+  /**
+   * Returns the value at the front of the queue without removing it
+   *
+   * @pre !isEmpty()
+   *
+   * @post return value is the value at the front of the queue
+   * @post the queue is unchanged
+   */
+  Queue.prototype.peek = function () {
+    if (!this.isEmpty()) {
+      return this.queue[this.queue.size - 1];
+    } else {
+      throw new InvalidOperationException("Queue is empty!");
+    }
+  };
+  </code>
+  </pre>
+</section>
+<section>
+  <h3><span class=greenText>Post</span>-conditions</h3>
+  <br>
+  <ul>
+    <li class="fragment roll-in">Specific to operation</li>
+    <li class="fragment roll-in">Obligations the callee (supplier) must meet</li>
+    <li class="fragment roll-in">Specify minimum acceptable output conditions</li>
+    <li class="fragment roll-in">
+      Protect the caller (client) by specifying <em>how much</em> should be done
+    </li>
+    <li class="fragment roll-in">The client is entitled to receive a certain result</li>
+  </ul>
+</section>
+<section>
+  <h3><span class=greenText>Post</span>-conditions</h3>
+  <pre>
+  <code class="javascript">
+  /**
+   * Removes and returns the value at the front of the queue
+   *
+   * @post previous value of peek() has been removed from the queue
+   * @post the return value is the previous value of peek()
+   * @post size() == the previous value of size() - 1
+   */
+  Queue.prototype.pop = function () {
+    return this.queue.pop();
+  };
+  </code>
+  </pre>
+</section>
+<section>
+  <h3><span class=greenText>Post</span>-conditions</h3>
+  <p>With checking</p>
+  <pre>
+  <code class="javascript">
+  /**
+   * Removes and returns the value at the front of the queue
+   * @post previous value of peek() has been removed from the queue
+   * @post the return value is the previous value of peek()
+   * @post size() == the previous value of size() - 1
+   */
+  Queue.prototype.pop = function () {
+    var prevSize = this.queue.size, prevPeek = this.peek(),
+        returnValue = this.queue.pop();
+
+    if (this.peek() === returnValue) {
+      throw new Exception("Something broke!");
+    } else if (prevPeek !== returnValue) {
+      throw new Exception("Something else broke!");
+    } else if (this.queue.size !== prevSize - 1) {
+      throw new Exception("We're really broke!");
+    }
+    return returnValue;
+  };
+  </code>
+  </pre>
+</section>
+<section>
+  <h3>Class <span class="purpleText">Invariants</span></h3>
+  <br>
+  <ul>
+    <li class="fragment roll-in">
+      Class-level conditions that must always be satisfied by the supplier
+    </li>
+    <li class="fragment roll-in">These conditions are checked at every public operation</li>
+  </ul>
+</section>
+<section>
+  <h3>Class <span class="purpleText">Invariants</span></h3>
+  <pre>
+  <code class="javascript">
+  /**
+   *
+   * @constructor
+   * @invariant size() >= 0
+   * @invariant isEmpty() == true iff size() == 0
+   */
+  function Queue() {
+    this.size = 0;
+  }
+  Queue.prototype.size = function () {
+    return this.queue.size;
+  };
+  Queue.prototype.isEmpty = function () {
+    return this.queue.size === 0;
+  };
+  </code>
+  </pre>
+</section>
+<section>
+  <h3>Use Exceptions</h3>
+  <br>
+  <h4>Or some alert system for condition violations</h4>
+  <br>
+  <h4>Increases Visibility</h4>
+</section>
+<section data-state="soothe">
+  <h2>Increases Testability</h2>
+</section>
+<!-- Law of Demeter -->
+<section>
+  <h2>Law of Demeter</h2>
+  <br>
+  <p class="fragment roll-in">
+    <q>
+      "Good fences make good neighbors."
+    </q>
+  </p>
+  <br>
+  <p class="fragment roll-in med">Robert Frost, "Mending Wall"
+  </p>
+</section>
+<section>
+  <h3>Law of Demeter</h3>
+  <br>
+  <p>Each unit should have only limited knowledge about other units</p>
+</section>
+<section>
+  <h3>Law of Demeter</h3>
+  <br>
+  <p>Avoid "reaching through" objects to access yet more objects</p>
+  <pre>
+  <code class="javascript">
+  driver.leg.foot.push(car.gasPedal);
+
+  person.arm.hand.fingers[1].push(doorbell);
+  </code>
+  </pre>
+</section>
+<section>
+  <h3>Minimize Coupling</h3>
+  <p>Talk to immediate friends only</p>
+  <pre>
+  <code class="javascript">
+  function Demeter() {
+    this.a = {
+      print: function() { console.log('hello'); }
+    };
+  }
+
+  Demeter.prototype.b = function (c) {
+    var d = new D();
+
+    return d.calc() + c.sum();
+  };
+
+  var demeter = new Demeter();
+  demeter.b(c);
+  </code>
+  </pre>
+  <p>a, b, c, and d are immediate friends of class "Demeter"</p>
+</section>
+<section>
+  <h3>Minimize Coupling</h3>
+  <p>Talk to immediate friends only</p>
+  <pre>
+  <code class="javascript">
+  function Demeter() {
+    this.a = {
+      print: function() { console.log('hello'); }
+    };
+  }
+
+  Demeter.prototype.b = function (c) {
+    var d = new D();
+
+    return d.e.calc() + c.f.sum() + someGlobal;
+  };
+
+  var demeter = new Demeter();
+  demeter.b(c);
+  </code>
+  </pre>
+  <p>e, f, and someGlobal are NOT immediate friends</p>
+</section>
+<section data-state="soothe">
+  <h2>Increases Testability</h2>
+</section>
+<!-- Orthogonality -->
+<section>
+  <h2>Orthogonality</h2>
+  <br>
+  <p class="fragment roll-in">
+    <q>
+      "The more tied components are to each other, the less reusable they will be, and the more
+      difficult it becomes to make changes to one without accidentally affecting another"
+    </q>
+  </p>
+  <p class="fragment roll-in"><span class="med">Rebecca Murphey</span>, author of <span class="med">jQuery Fundamentals</span>
+  </p>
+</section>
+<section>
+  <h3>Orthogonality</h3>
+  <br>
+  <img src="images/orthogonality.png">
+</section>
+<section>
+  <h3>Need to make a change?</h3>
+  <br>
+  <p>How painful is it to change your implementation?</p>
+  <br>
+  <p>How painful is it tracking down bugs you didn't realize your changes had caused?</p>
+</section>
+<section>
+  <h3>Need to make a change?</h3>
+  <br>
+  <p>
+    <span class="redText">Shotgun surgery</span> - Blasting your code to make a change,
+    making the same or similar change in many places.
+  </p>
+  <br>
+  <p class="fragment roll-in">
+    <span>A</span> does A, <span class="redText">X</span>, <span class="blueText">Y</span>, <span
+    class="greenText">Z</span> -
+    <span>B</span> does B, <span class="redText">X</span>, <span class="blueText">Y</span>, <span
+    class="greenText">Z</span> -
+    <span>C</span> does C,<span class="redText">X</span>, <span class="blueText">Y</span>, <span
+    class="greenText">Z</span> -
+  </p>
+  <p class="fragment roll-in">
+    I'd hate to have to change <span class="redText">X</span>...
+  </p>
+</section>
+<section>
+  <h3>Orthogonality</h3>
+  <br>
+  <p>
+    A does A - B does B
+  </p>
+  <p>
+    <span class="redText">X</span> does <span class="redText">X</span> -
+    <span class="blueText">Y</span> does <span class="blueText">Y</span> -
+    <span class="greenText">Z</span> does <span class="greenText">Z</span> -
+  </p>
+  <br>
+  <p class="fragment roll-in">
+    A and B use <span class="redText">X</span>, <span class="blueText">Y</span>, and <span
+    class="greenText">Z</span>
+  </p>
+  <p class="fragment roll-in">
+    A is still just A and B is still just B even when <span class="redText">X</span>, <span
+    class="blueText">Y</span>,
+    and <span class="greenText">Z</span> change
+  </p>
+</section>
+<section data-state="soothe">
+  <h2>Increases Testability</h2>
+</section>
+<!-- Single Responsibility -->
+<section>
+  <h2>Single Responsibility</h2>
+  <p>+</p>
+
+  <h3>Separation of concerns</h3>
+  <br>
+  <p class="fragment roll-in">
+    <q>
+      "Write programs that do one thing and do it well."
+    </q>
+  </p>
+  <p class="fragment roll-in"><span class="med">Doug Mcllory</span>, <em>Unix philosophy</em></p>
+</section>
+<section>
+  <h3>Angular.js Example</h3>
+  <br>
+  <p>Single Responsibility</p>
+  <br>
+  <ul>
+    <li>Safe, cross-browser logging? <span class="fragment roll-in med"> -  Use $log</span></li>
+    <li>Ajax?<span class="fragment roll-in med"> -  Use $http</span></li>
+    <li>window.location?<span class="fragment roll-in med"> -  Use $location</span></li>
+    <li>Access params in url?<span class="fragment roll-in med"> -  Use $routeParams</span></li>
+  </ul>
+</section>
+<section>
+  <h3>Angular.js Example</h3>
+  <br>
+  <p>Separation of Concerns</p>
+  <br>
+  <ul>
+    <li>DOM?<span class="fragment roll-in med"> -  Use a directive</span></li>
+    <li>Controller?<span class="fragment roll-in med"> -  Er, use a controller</span></li>
+    <li>Data?<span class="fragment roll-in med"> -  Use a service</span></li>
+  </ul>
+</section>
+<section>
+  <h3>Do yourself a favor</h3>
+  <br>
+
+  <h2 class="blueText fragment roll-in">Organize your tools</h2>
+  <br>
+  <p class="fragment roll-in">No one builds a house with a single "house-builder tool".</p>
+</section>
+<section data-state="soothe">
+  <h2>Increases Testability</h2>
+</section>
+<!-- DRY -->
+<section>
+  <h2>DRY</h2>
+  <br>
+  <p>
+    <q>
+      "Every piece of knowledge must have a single, unambiguous, authoritative representation within
+      a system."
+    </q>
+  </p>
+  <p class="fragment roll-in"><span class="med"><em>The Pragmatic Programmer</em></span></p>
+</section>
+<section>
+  <h3>feedback modal example</h3>
+  <br>
+  <p>Need a button that opens a feedback modal in many places.</p>
+  <br>
+  <p class="fragment roll-in">The button element will of course be on several pages.</p>
+  <br>
+  <p class="fragment roll-in">But do I duplicate the code that opens the modal, collects and
+    validates input, and submits the
+    feedback to the server?</p>
+  <br>
+  <h4 class="fragment roll-in">No</h4>
+</section>
+<section>
+  <pre>
+  <code class="javascript">
+(function ($) {
+    var FeedbackModal = function (el) {
+        function openFeedbackModal() {
+            /* setup bindings for opening the modal */
+        }
+        function closeFeedbackModal() {
+            /* setup bindings for closing the modal */
+        }
+        function submit() {
+            /* setup bindings for when the user clicks submit */
+        }
+    };
+    $.fn.feedBackModal = function() {
+        return new FeedbackModal($(this));
+    };
+    $(function () {
+        $("#feedbackModal").feedbackModal()
+    });
+    var $this = el;
+})(jQuery);
+  </code>
+  </pre>
+</section>
+<section>
+  <p>Automatically activate the modal on the page by including:</p>
+  <pre>
+  <code class="html">
+  <script src="js/feedbackModal.js"></script>
+  </code>
+  </pre>
+  <p>Or dynamically activate the modal with:</p>
+  <pre>
+  <code class="javascript">
+  document.getElementById('feedbackModal').feedBackModal();
+  </code>
+  </pre>
+</section>
+<!-- Logging -->
+<section>
+  <h2>Logging</h2>
+  <br>
+  <p>Servers can generate tons of data with useful information</p>
+  <br>
+  <p>Be proactive in understanding what your server is saying</p>
+</section>
+<section>
+  <h2>Logging</h2>
+  <br>
+  <p>Consider using/writing client-side log-to-server functionality</p>
+  <br>
+  <p>console.log() in your browser doesn't cut it</p>
+</section>
+<!-- End -->
+<section>
+  <h2 class="blueText">Testability</h2>
+  <br>
+
+  <h1 class="fragment roll-in">do it</h1>
+</section>
+<section>
+  <h2>Thank you</h2>
+  <br>
+  <br>
+
+  <p><img src="images/csc-twitter_icon.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a
+    href="https://twitter.com/DobryJason">@DobryJason</a></p>
+
+  <p><img src="images/github_icon_32.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a
+    href="https://github.com/jmdobry">@jmdobry</a></p>
+  <p>
+    <a href="http://pseudobry.com">www.<strong>pseudo</strong>bry.com</a>
+  </p>
+</section>
+</div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+    // Enable the slide overview mode
+    overview: true,
+    // Enable slide navigation via mouse wheel
+    mouseWheel: true,
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+    multiplex: {
+      //secret: '13652236846086868002',
+      secret: null,
+      id: '88a87f8f295d8697',
+      url: 'revealjs.jit.su:80'
+    },
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+      {
+        src: 'lib/js/classList.js',
+        condition: function () {
+          return !document.body.classList;
+        }
+      },
+      {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      },
+      // {
+      //   src: 'plugin/notes/notes.js',
+      //   async: true,
+      //   condition: function () {
+      //     return !!document.body.classList;
+      //   }
+      // },
+      {
+        src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js',
+        async: true
+      },
+      // {
+      //   src: 'plugin/multiplex/master.js',
+      //   async: true
+      // },
+      {
+        src: 'plugin/notes-server/client.js',
+        async: true
+      }
+
+      // Remote control your reveal.js presentation using a touch device
+      // {
+      //   src: 'plugin/remotes/remotes.js',
+      //   async: true,
+      //   condition: function () {
+      //     return !!document.body.classList;
+      //   }
+      // }
+    ]
+  });
+
+</script>
+
+</body>
+</html>
