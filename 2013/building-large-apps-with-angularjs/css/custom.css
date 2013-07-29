@@ -1,0 +1,33 @@
+.hiddenhover {
+    display: none;
+}
+
+.hiddenhover:hover {
+    display: block;
+}
+
+.redText {
+    color: #e55e5e !important;
+}
+
+.purpleText {
+    color: #8f60e0 !important;
+}
+
+.greenText {
+    color: #3dcc76 !important;
+}
+
+.blueText {
+    color: #1b91ff !important;
+}
+.orangeText {
+    color: #e59d59 !important;
+}
+.reveal pre {
+    box-shadow: none;
+}
+.reveal pre code {
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.7);
+    max-height: 500px;
+}
