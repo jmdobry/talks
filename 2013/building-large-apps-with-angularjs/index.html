@@ -33,75 +33,482 @@
 <body>
 <div class="theme-font-asul theme-color-asphalt-orange" style="width: 100%; height: 100%; padding: 0; overflow: hidden;">
 <div class="reveal">
-<div class="slides">
 <!-- Title -->
-<section>
-  <h1>
+<div class="slides">
+    <section>
+        <h1>
+    <span style="font-size: 115.362px;">
+        <br>
+    </span>
+</h1>
+<h1>
     <font style="font-size: 72px;">Building </font>
     <font style="font-style: inherit; font-variant: inherit; font-size: 112px;">LARGE</font>
     <font style="font-size: 72px;"> apps with Angular.js</font>
-  </h1>
-  <br>
-  <br>
-
-  <p><img src="images/csc-twitter_icon.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a
-    href="https://twitter.com/DobryJason">@DobryJason</a></p>
-
-  <p><img src="images/github_icon_32.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a
-    href="https://github.com/jmdobry">@jmdobry</a></p>
-  <p>
-    <a href="http://www.pseudobry.com">www.<strong>pseudo</strong>bry.com</a>
-  </p>
-</section>
-<!-- What? -->
-<section>
-  <h2 class="blueText">TESTABILITY</h2>
-  <br>
-
-  <h3>WHAT?</h3>
-
-  <h4>WHY?</h4>
-
-  <h4>HOW?</h4>
-  <ul>
-    <li class="fragment roll-in blueText">what state is the program in?</li>
-    <li class="fragment roll-in greenText">how did it get there?</li>
-    <li class="fragment roll-in redText">where can it go from here?</li>
-    <li class="fragment roll-in orangeText">where can it go from here?</li>
-    <li class="fragment roll-in purpleText">where can it go from here?</li>
-  </ul>
+</h1>
+<div>
+    <br>
+</div>
+<p>
+<img src="images/csc-twitter_icon.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a href="https://twitter.com/DobryJason">@DobryJason</a>
+</p>
+<p>
+<img src="images/github_icon_32.png" style="margin-top:5px; border:none;">&nbsp;&nbsp;<a href="https://github.com/jmdobry">@jmdobry</a>
+</p>
+<p>
+<a href="http://pseudobry.com">www.<strong>pseudo</strong>bry.com</a>
+</p>
 </section>
 <section>
-  <h2><span class="redText">un-testable</span> code</h2>
-  <br>
-  <img src="images/fixed-it.jpg" height="350px" style="margin-top:5px">
-  <p class="fragment roll-in">Avoidance isn't a solution</p>
+    <h2>New to AngularJS?</h2>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60263/cute_little_kid.jpg" style="width: 426.1663552651049px; height: 421.55358600616455px; max-height: none; max-width: none;">
+    <br>
+</div>
+<div class="fragment" data-fragment-index="0">
+    <font style="font-size: 72px;">IT HAPPENS</font>
+</div>
 </section>
 <section>
-  <h3>programmers</h3>
-  <p>define high-level abstractions</p>
-  <pre>
-  <code class="javascript">
-  function Role(startDate) {
-      this.startDate = startDate;
-  }
-
-  function Manager() {}
-  Manager.prototype.manage = new function() {
-      console.log("Get back to work!");
-  };
-  Manager.prototype = new Role();
-
-  function Developer() {
-      this.linesOfCode = 0;
-  }
-  Developer.prototype.work = new function() {
-      this.linesOfCode++;
-  };
-  Developer.prototype = new Role();
-  </code>
-  </pre>
+    <h2>Confused by?</h2>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60259/directives.jpg" style="width: 665.4025157232704px; height: 439px; max-height: none; max-width: none;">
+    <br>
+</div>
+<div class="fragment" data-fragment-index="0">
+    <font style="font-size: 72px;">IT HAPPENS</font>
+</div>
 </section>
+<section>
+    <h2>Loving the magic and&nbsp;</h2>
+<h2>your new productivity?</h2>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60188/allthethings.jpg" style="width: 504.8076923076923px; height: 375px; max-height: none; max-width: none;">
+    <br>
+</div>
+<div class="fragment" data-fragment-index="0">
+    <font style="font-size: 72px;">IT HAPPENS</font>
+</div>
+</section>
+<section>
+    <h2>Jaded by gotchas?</h2>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60187/angularyunominify.jpg" style="width: 608.0225409836065px; height: 453px; max-height: none; max-width: none;">
+    <br>
+</div>
+<div class="fragment" data-fragment-index="0">
+    <font style="font-size: 72px;">IT HAPPENS</font>
+</div>
+</section>
+<section>
+    <h2>Enjoying the zen of Angular?</h2>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60185/zen.jpg" style="font-size: 35.45527648925781px; font-style: normal; font-variant: normal; max-width: none; max-height: none; width: 694.0038684719535px; height: 460px;">
+    <br>
+</div>
+<div class="fragment absolute-element" style="position: absolute; width: 305px; height: 46px; z-index: 4; left: 223px; top: 612px; max-height: none; max-width: none;" data-fragment-index="0">
+    <font style="font-size: 54px;">IT HAPPENS</font>
+</div>
+<div class="fragment absolute-element" style="position: absolute; width: 227px; height: 46px; z-index: 6; left: 523px; top: 612px; max-height: none; max-width: none;" data-fragment-index="1">
+<font style="font-size: 54px;">...usually</font>
+</div>
+</section>
+<section>
+    <h2>A word of caution</h2>
+<div>
+    <br>
+</div>
+<div>You're bound to encounter Angular in the wild</div>
+<div>being used on a large project</div>
+<div>
+<br>
+</div>
+<div class="fragment" data-fragment-index="0">You will inevitably run into a problem Angular does not solve for you</div>
+<div>
+<br>
+</div>
+<div class="fragment" data-fragment-index="1">
+<font style="font-size: 54px;">Will you survive?</font>
+</div>
+<div>
+<br>
+</div>
+</section>
+<section>
+    <h2>If you've needed to...</h2>
+<div class="fragment" data-fragment-index="0">Organize your files</div>
+<div class="fragment" data-fragment-index="1">Name your files</div>
+<div class="fragment" data-fragment-index="2">Lazy-load your code</div>
+<div class="fragment" data-fragment-index="3">Serialize application state to the URL</div>
+<div class="fragment" data-fragment-index="4">Create a Model object</div>
+<div class="fragment" data-fragment-index="5">Manage Model objects</div>
+<div class="fragment" data-fragment-index="6">Do smart caching</div>
+<div class="fragment" data-fragment-index="7">Work with a RESTful interface (for real)</div>
+<div class="fragment" data-fragment-index="8">Use a 3rd-party lib with Angular</div>
+<div>
+    <br>
+</div>
+<div class="fragment" data-fragment-index="9">
+<font style="font-size: 42px;">THEN YOU'VE ALREADY MET THE BEAST</font>
+</div>
+<div>
+<br>
+</div>
+</section>
+<section>
+    <h2>Be warned</h2>
+<div>
+    <br>
+</div>
+<div>Angular...</div>
+<div>
+<br>
+</div>
+<div class="fragment" data-fragment-index="0">is not the framework to end all frameworks</div>
+<div>
+<br>
+</div>
+<div class="fragment" data-fragment-index="1">does not solve all your problems</div>
+<div>
+<br>
+</div>
+<div class="fragment" data-fragment-index="2">will bite you eventually</div>
+</section>
+<section>
+    <h2>But there will come a day&nbsp;</h2>
+<h2>when it saves your life</h2>
+<div class="fragment" data-fragment-index="0">
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60284/epic_win.jpg" style="width: 355.5647423829981px; height: 385.55358600616455px; max-height: none; max-width: none;">
+    <br>
+</div>
+<div class="fragment" data-fragment-index="1">and you will cry</div>
+</section>
+<section>
+    <h2>
+        <span style="font-size: 64.566px;">Survival Kit:</span>
+        </h2>
+<h2>
+<font style="font-size: 42px;">Building LARGE apps with Angular.js</font>
+        <br>
+</h2>
+<div>
+        <br>
+    </div>
+<div class="fragment" data-fragment-index="0">Beyond this slide are some points you should consider while (read before) building large apps with Angular.js</div>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60425/danger.jpg" style="width: 423.6791277258567px; height: 307px; max-height: none; max-width: none;">
+    <br>
+</div>
+</section>
+<section data-background-color="rgba( 200, 50, 30, 0.6 )">
+    <h2>Convention vs Configuration</h2>
+<div class="absolute-element" style="position: absolute; width: 596px; height: 495px; z-index: 5; left: 48px; top: 110px; max-height: none; max-width: none;">
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jdobry/images/60233/cleanclode.png">
+    <br>
+</div>
+<div class="absolute-element" style="position: absolute; width: 527px; height: 47px; z-index: 6; left: 206px; top: 609px;">Source: <a href="http://www.planetgeek.ch/2013/06/05/clean-code-cheat-sheet/">Clean Code Cheat Sheet</a>
+</div>
+<div class="absolute-element" style="position: absolute; width: 527px; height: 47px; z-index: 7; left: 206px; top: 609px;">
+<br>
+</div>
+<div class="absolute-element fragment" style="position: absolute; width: 183px; height: 47px; z-index: 8; left: 659px; top: 370px; max-height: none; max-width: none;" data-fragment-index="4">Readability</div>
+<div class="absolute-element fragment" style="position: absolute; width: 214px; height: 48px; z-index: 9; left: 657px; top: 313px; max-height: none; max-width: none;" data-fragment-index="3">Extensibility</div>
+<div class="absolute-element fragment" style="position: absolute; width: 252px; height: 47px; z-index: 10; left: 662px; top: 258px; max-height: none; max-width: none;" data-fragment-index="2">Maintainability</div>
+<div class="absolute-element fragment" style="position: absolute; width: 238px; height: 47px; z-index: 11; left: 658px; top: 201px; max-height: none; max-width: none;" data-fragment-index="1">Changeability</div>
+<div class="absolute-element fragment" style="position: absolute; width: 185px; height: 47px; z-index: 4; left: 657px; top: 143px; max-height: none; max-width: none;" data-fragment-index="0">Testability</div>
+</section>
+    <section data-background-color="rgba( 200, 50, 30, 0.6 )">
+        <h2>
+<span style="font-size: 64.566px;">Convention vs Configuration</span>
+        <br>
+</h2>
+<div>
+        <br>
+    </div>
+<div style="width: 93px; height: 47px; max-height: none; max-width: none; position: absolute; z-index: 16; left: 504px; top: 165px;" class="absolute-element">$http</div>
+<div class="absolute-element fragment" style="position: absolute; width: 729px; height: 48px; z-index: 4; left: 108px; top: 597px; max-height: none; max-width: none;" data-fragment-index="0">
+    <font style="font-size: 42px;">What is Angular's stance on anything?</font>
+</div>
+<div style="width: 143px; height: 47px; max-height: none; max-width: none; position: absolute; z-index: 9; left: 279px; top: 133px;" class="absolute-element">$service</div>
+<div>
+<br>
+</div>
+<div style="width: 267px; height: 47px; max-height: none; max-width: none; position: absolute; z-index: 6; left: 165px; top: 233px;" class="absolute-element">$routeProvider</div>
+<div>
+<br>
+</div>
+<div class="absolute-element" style="position: absolute; width: 190px; height: 47px; z-index: 14; left: 569px; top: 278px;">$controller</div>
+<div class="absolute-element" style="position: absolute; width: 298px; height: 47px; z-index: 7; left: 488px; top: 500px;">$locationProvider</div>
+<div class="absolute-element" style="position: absolute; width: 236px; height: 47px; z-index: 4; left: 55px; top: 453px;">$httpProvider</div>
+<div class="absolute-element" style="position: absolute; width: 79px; height: 47px; z-index: 4; left: 80px; top: 180px;">$log</div>
+<div class="absolute-element" style="position: absolute; width: 215px; height: 47px; z-index: 4; left: 639px; top: 132px;">$logProvider</div>
+<div class="absolute-element" style="position: absolute; width: 58px; height: 111px; z-index: 5; left: 457px; top: 274px;">
+<font style="font-size: 112px;">?</font>
+</div>
+<div class="absolute-element" style="position: absolute; width: 145px; height: 47px; z-index: 10; left: 375px; top: 425px;">$factory</div>
+<div class="absolute-element" style="position: absolute; width: 198px; height: 47px; z-index: 11; left: 623px; top: 403px;">
+<span>$rootScope</span>
+<br>
+</div>
+<div class="absolute-element" style="position: absolute; width: 50px; height: 47px; z-index: 12; left: 341px; top: 505px;">
+<span>$q</span>
+<br>
+</div>
+<div class="absolute-element" style="position: absolute; width: 162px; height: 47px; z-index: 13; left: 183px; top: 349px;">$location</div>
+<div class="absolute-element" style="position: absolute; width: 125px; height: 47px; z-index: 15; left: 747px; top: 215px;">$scope</div>
+</section>
+<section data-background-color="rgba( 200, 50, 30, 0.6 )">
+    <h2>Convention Example</h2>
+<pre class="javascript">
+    <code class="javascript" style="max-height: 600px;">app.controller('MyCtrl', function ($scope, MyService) {
+    var _count = 0;
+    
+    function _privateUtil() {
+        _count += _count + 1;
+    }
+    
+    function _handleClick(data) {
+        _privateUtil();
+        $scope.answer = MyService.doSomething({
+            data: data,
+            count: _count
+        });
+    }
+    
+    function _init() {
+        // expose "data" to the view
+        $scope.data = 10; 
+        
+        // expose _handleClick as a "public" method on the $scope
+        $scope.handleClick = _handleClick; 
+    }
+    
+    _init();
+}</code>
+</pre>
+
+
+
+
+
+
+
+
+
+</section>
+<section data-background-color="rgba( 200, 50, 30, 0.6 )">
+    <h2>Convention vs Configuration</h2>
+<div>Building LARGE apps with Angular</div>
+<div>Key to success:</div>
+<div>
+    <br>
+</div>
+<div>
+<ul>
+<li class="fragment" data-fragment-index="0">
+<span style="text-align: center;">Establish/follow conventions</span>
+<br>
+</li>
+<li class="fragment" data-fragment-index="1">
+<span style="text-align: center;">AngularJS docs = no help there</span>
+<br>
+</li>
+<li class="fragment" data-fragment-index="2">
+<span style="text-align: center;">Read what experienced Angular devs write.</span>
+<br>
+</li>
+<li class="fragment" data-fragment-index="3">
+<span style="text-align: center;">Pay attention to the </span>
+<a href="https://groups.google.com/forum/#!forum/angular" style="text-align: center;">mailing list</a>
+<span style="text-align: center;">,&nbsp;</span>
+<span style="text-align: center;">the </span>
+<a href="https://github.com/angular/angular.js" style="text-align: center;">GitHub project</a>
+<span style="text-align: center;">,&nbsp;</span>
+<span style="text-align: center;">and the opinions of Angular's core contributors</span>
+<br>
+</li>
+</ul>
+</div>
+<div>
+<br>
+</div>
+<div class="fragment" data-fragment-index="4">don't abandon good programming design</div>
+</section>
+<section data-background-color="rgba( 50, 200, 90, 0.4 )">
+    <h2>Model Layer</h2>
+<div>
+    <font>
+        <font style="font-size: 32px;">
+            <br>
+</font>
+    </font>
+</div>
+<blockquote>
+    <font>
+        <font style="font-size: 32px;">"Angular makes no restrictions or requirements on the model"</font>
+    </font>
+</blockquote>
+<div>
+    <br>
+</div>
+<div>
+    <br>
+</div>
+<div class="absolute-element fragment" style="position: absolute; width: 190px; height: 47px; z-index: 8; left: 395px; top: 304px;" data-fragment-index="0">Controllers</div>
+<div>
+    <br>
+</div>
+<div class="absolute-element fragment" style="position: absolute; width: 125px; height: 47px; z-index: 9; left: 417px; top: 352px;" data-fragment-index="1">$scope</div>
+<div>
+    <br>
+</div>
+<div class="absolute-element fragment" style="position: absolute; width: 355px; height: 47px; z-index: 4; left: 27px; top: 328px;" data-fragment-index="3">Model Layer &lt;--------&gt;</div>
+<div class="absolute-element fragment" style="position: absolute; width: 257px; height: 47px; z-index: 4; left: 602px; top: 329px;" data-fragment-index="2">&lt;--------&gt; Views</div>
+<div class="fragment" data-fragment-index="5">$scope !== Model Layer</div>
+<div>
+    <br>
+</div>
+<div class="fragment" data-fragment-index="6">$scope === glue between Controller and View</div>
+
+
+
+
+
+
+</section>
+    <section data-background-color="rgba( 50, 200, 90, 0.4 )">
+        <h2>Model Layer</h2>
+<pre class="javascript">
+        <code class="javascript" style="max-height: 600px;">app.service('MyService', function ($http, $q, $angularCacheFactory) {
+    var _dataCache = $angularCacheFactory('dataCache', { 
+        maxAge: 3600000 // items expire after an hour
+    });
+    /**
+     * @class MyService
+     */
+    return {
+        manipulateData: function (input) {
+            var output;
+            // do something with the data
+            return output;
+        },
+            
+        getDataById: function (id) {
+            var deferred = $q.defer();
+            if (_dataCache.get(id)) {
+                deferred.resolve(_dataCache.get(id));
+            } else {
+                // Get the data from the server and populate cache
+            }
+            return deferred.promise;
+        }
+    };
+});
+</code>
+    </pre>
+
+
+
+
+</section>
+    <section data-background-color="rgba( 50, 200, 90, 0.4 )">
+        <h2>Model Layer</h2>
+<div>
+    <br>
+</div>
+<div>Controllers consume your data</div>
+<div class="fragment" data-fragment-index="0">and massage it into your $scope</div>
+<pre class="javascript fragment" data-fragment-index="0">
+        <code class="javascript">
+$scope.$watch(function () {
+    return MyService.getDataById($scope.selectedId);
+}, function () {
+    $scope.currentData = MyService.getDataById($scope.currentData.id);
+});
+</code>
+    </pre>
+<div class="fragment" data-fragment-index="1">
+    <span>Two-way data binding takes care of the rest</span>
+    <br>
+</div>
+<pre class="fragment" data-fragment-index="1">
+    <code class="html">
+&lt;h3p&gt;{{ currentData.name }}&lt;/h3&gt;
+</code>
+</pre>
+<div>
+<span>
+    <br>
+</span>
+</div>
+<div class="fragment" data-fragment-index="2">
+    <span>Your Services are the "source of truth" for your data</span>
+    <br>
+</div>
+
+
+
+</section>
+<section data-background-color="rgba( 50, 200, 90, 0.4 )">
+    <h2>Model Layer</h2>
+    <div>
+        <br>
+    </div>
+    <div>Large apps need a real Model Layer</div>
+    <div>
+        <br>
+    </div>
+    <div>
+        <a href="http://docs.angularjs.org/api/ngResource.$resource">$ngResource</a>
+    </div>
+    <div>
+        <br>
+    </div>
+    <div>
+        <a href="https://github.com/mgonto/restangular">Restangular</a>
+    </div>
+    <div>
+        <br>
+    </div>
+    <div>
+        <a href="http://www.breezejs.com/">BreezeJS</a>
+    </div>
+    <div>
+        <br>
+    </div>
+    <div>Treat your data with respect</div>
+</section>
+<section data-background-color="rgba( 0, 0, 0, 0.6 )">
+    <h2>File Organization</h2>
+</section>
+<section data-background-color="rgba( 255, 255, 255, 0.6 )">
+    <h2>Modules and lazy loading</h2>
+</section>
+<section data-background-color="rgba( 22, 152, 213, 0.6 )">
+    <h2>Understand the&nbsp;</h2>
+<h2>$scope life-cycle</h2>
+</section>
+<section data-background-color="rgba( 22, 213, 75, 0.6 )">
+    <h2>3rd-party integration with Angular.js</h2>
+</section>
+<section data-background-color="rgba( 12, 25, 77, 0.6)">
+    <h2>Take advantage of Angular's testability</h2>
+</section>
+<section data-background-color="rgba( 180, 50, 140, 0.6 )">
+    <h2>Logging and&nbsp;</h2>
+<h2>exception handling</h2>
+</section>
+<section data-background-color="rgba( 255, 122, 0, 0.6 )">
+    <h2>$http interceptors</h2>
+</section>
+</div>
+
+
+
+</div>
+</div>
+
+
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
